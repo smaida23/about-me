@@ -65,6 +65,7 @@
       font-weight: 500;
       transition: all 0.3s ease;
       position: relative;
+      font-size: 0.95rem;
     }
 
     nav a::after {
@@ -114,10 +115,14 @@
 
     .hero h1 {
       font-size: 4rem;
-      color: var(--light);
       margin-bottom: 1rem;
       font-weight: 800;
       letter-spacing: -1px;
+      background: linear-gradient(135deg, #d6bbff 0%, #8b5cf6 50%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 10px rgba(139,92,246,0.25), 0 0 30px rgba(214,187,255,0.12);
     }
 
     .hero .subtitle {
@@ -358,6 +363,18 @@
       border: 1px solid rgba(102, 126, 234, 0.2);
     }
 
+    .design-points {
+      margin-top: 0.5rem;
+      color: #a0aec0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-left: 1rem;
+    }
+
+    .design-points li {
+      margin-bottom: 0.35rem;
+    }
+
     /* About Section */
     .about {
       padding: 5rem 2rem;
@@ -476,8 +493,23 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
       nav ul {
-        gap: 1.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
       }
 
       .hero h1 {
@@ -506,22 +538,58 @@
     @media (max-width: 480px) {
       nav {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
+        padding: 0.8rem;
+      }
+
+      .logo {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      .hero {
+        margin-top: 100px;
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
       }
 
       .skills-grid,
       .projects-grid {
         grid-template-columns: 1fr;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -529,12 +597,6 @@
 <body>
   <!-- Navigation -->
   <nav>
-    <div class="logo">M.S</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -542,7 +604,7 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Maida Sabanovic</h1>
+      <h1>Maida Šabanović</h1>
       <div class="subtitle">Mobile App UI/UX Designer</div>
       <p>Creating beautiful, intuitive, and user-centered mobile experiences that engage and delight users.</p>
       <div class="cta-buttons">
@@ -596,15 +658,64 @@
     <p class="section-subtitle">Mobile applications with exceptional user experiences</p>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-image">📲</div>
+        <div class="project-image" style="background: linear-gradient(135deg, #764ba2, #667eea); font-size: 4rem;">♫</div>
         <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>FinFlow - Finance App</h3>
-          <p>A mobile banking application with intuitive transaction management, budget tracking, and real-time notifications.</p>
+          <span class="project-tag">Figma</span>
+          <h3>SonicFlow - Music Streaming</h3>
+          <p>A modern music streaming application with personalized playlists, seamless playback controls, and social music discovery. Designed to create an immersive listening experience with smooth navigation and expressive animations.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>Music User Behavior Research — understanding listening habits and preferences</li>
+            <li>Wireframing & Flow Design — designing intuitive player controls and playlist management</li>
+            <li>Visual Design & Animations — creating engaging UI with smooth microinteractions</li>
+          </ul>
+          <div style="margin-top:1rem;">
+            <a href="https://www.figma.com/design/nfQKXQ6LCEeA4CIGapSCFN/Projekat-4--Sonic-Flow---Maida-%C5%A0abanovi%C4%87?node-id=0-1&t=SUPxJIJTDehjawjM-1" class="btn btn-secondary" target="_blank" rel="noopener">Open Figma Prototype</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image">🍽️</div>
+        <div class="project-content">
+          <span class="project-tag">Figma</span>
+          <h3>CookMate - Recipe App</h3>
+          <p>A comprehensive recipe discovery app featuring personalized meal suggestions, step-by-step cooking guides, and ingredient-based search. Designed with an intuitive interface to make cooking accessible and enjoyable for all skill levels.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>User Research & Personas — understanding cooking preferences and pain points</li>
+            <li>Information Architecture — organizing recipes and designing navigation flows</li>
+            <li>Visual Design & Prototyping — creating engaging UI with interactive elements</li>
+          </ul>
           <div class="project-tools">
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Prototyping</span>
             <span class="tool-badge">User Testing</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="https://www.figma.com/design/EwpqOkEr2Nb9ygdV9a87Er/Projekat-5--CookMate---Maida-Sabanovic?node-id=0-1&t=YEaSXxZNkVaQNvgw-1" class="btn btn-secondary" target="_blank" rel="noopener">Open Figma Prototype</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">💰</div>
+        <div class="project-content">
+          <span class="project-tag">Figma</span>
+          <h3>Spendo - Money Manager</h3>
+          <p>A personal finance management app that helps users track expenses, create budgets, and achieve financial goals. Features intuitive categorization, visual analytics, and smart spending insights to empower better financial decisions.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>Financial Behavior Research — understanding spending patterns and user goals</li>
+            <li>Wireframing & User Flows — designing budget tracking and expense categorization</li>
+            <li>Data Visualization & Design — making complex financial data accessible and actionable</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+            <span class="tool-badge">User Testing</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="https://www.figma.com/design/SHvYQm0oDfwYAZMBkikobw/Projekat-6--Spendo--Maida-Sabanovic?node-id=0-1&t=ZDsauXwwvOVwppjj-1" class="btn btn-secondary" target="_blank" rel="noopener">Open Figma Prototype</a>
           </div>
         </div>
       </div>
@@ -619,20 +730,6 @@
             <span class="tool-badge">Adobe XD</span>
             <span class="tool-badge">UI Design</span>
             <span class="tool-badge">Animation</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">🛍️</div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>ShopHub - E-Commerce</h3>
-          <p>An elegant e-commerce platform with smart search, personalized recommendations, and seamless checkout experience.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">UX Research</span>
-            <span class="tool-badge">A/B Testing</span>
           </div>
         </div>
       </div>
@@ -668,7 +765,7 @@
       <div class="project-card">
         <div class="project-image">💬</div>
         <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
+          <span class="project-tag">Figma</span>
           <h3>ConnectChat - Messaging App</h3>
           <p>A modern messaging platform with video calls, group chats, and end-to-end encrypted communication.</p>
           <div class="project-tools">
@@ -707,9 +804,9 @@
         <a href="#" class="social-icon" title="LinkedIn">in</a>
         <a href="#" class="social-icon" title="Dribbble">🎨</a>
         <a href="#" class="social-icon" title="Behance">b</a>
-        <a href="mailto:maida@example.com" class="social-icon" title="Email">✉️</a>
+        <a href="mailto:smaida23@gmail.com" class="social-icon" title="Email">✉️</a>
       </div>
-      <a href="mailto:maida@example.com" class="btn btn-primary">Send Me an Email</a>
+      <a href="mailto:smaida23@gmail.com" class="btn btn-primary">Send Me an Email</a>
     </div>
   </section>
 
