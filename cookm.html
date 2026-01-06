@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UI/UX Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    header {
+      margin-bottom: 64px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    header p {
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #b5b5b5;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .slider {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    }
+
+    .slider img {
+      width: 100%;
+      display: block;
+      transition: opacity 0.4s ease;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .arrow.left {
+      left: 16px;
+    }
+
+    .arrow.right {
+      right: 16px;
+    }
+
+    .details h2 {
+      font-size: 32px;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .details p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #c4c4c4;
+      margin-bottom: 24px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .actions a {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 12px;
+    }
+
+    .actions a.secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #333;
+    }
+
+    @media (max-width: 900px) {
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>UI / UX Portfolio</h1>
+      <p>
+        Selected case study showcasing my approach to product design,
+        user experience and interface design for mobile applications.
+      </p>
+    </header>
+
+    <section class="project">
+
+      <div class="slider">
+        <button class="arrow left" id="prev">&#10094;</button>
+        <img id="sliderImage" src="" alt="App design preview">
+        <button class="arrow right" id="next">&#10095;</button>
+      </div>
+
+      <div class="details">
+        <h2>Smart recipe</h2>
+        <p>
+          A user-friendly cooking app that offers personalized recipe recommendations,
+          step-by-step cooking instructions, and meal planning features to enhance
+          your culinary experience
+        </p>
+
+        <div class="tags">
+          <span class="tag">UI Design</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">Figma</span>
+        </div>
+
+        <div class="actions">
+          <a href="/index.html">View Figma</a>
+          <a href="/smart-recipe-case-study.html" class="secondary">Case Study</a>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    // 👇 UBACI SVOJE SLIKE
+    const images = [
+      "/CookMate.png",
+    
+    ];
+
+    let currentIndex = 0;
+    const sliderImage = document.getElementById("sliderImage");
+
+    function updateImage() {
+      sliderImage.style.opacity = 0;
+      setTimeout(() => {
+        sliderImage.src = images[currentIndex];
+        sliderImage.style.opacity = 1;
+      }, 200);
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateImage();
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateImage();
+    });
+
+    updateImage();
+  </script>
+
+</body>
+</html>

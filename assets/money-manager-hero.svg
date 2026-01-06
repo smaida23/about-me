@@ -1,0 +1,107 @@
+<svg viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="phoneGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Glow effect behind phone -->
+  <ellipse cx="200" cy="400" rx="180" ry="200" fill="url(#phoneGlow)" filter="url(#glow)"/>
+  
+  <!-- Phone body with perspective -->
+  <g transform="translate(100, 150) skewY(-5)">
+    <!-- Phone shadow -->
+    <rect x="0" y="0" width="200" height="500" rx="25" fill="#000000" opacity="0.3" filter="url(#shadow)"/>
+    
+    <!-- Phone bezel -->
+    <rect x="0" y="0" width="200" height="500" rx="25" fill="#1a1a1e"/>
+    
+    <!-- Screen -->
+    <rect x="8" y="12" width="184" height="476" rx="20" fill="url(#screenGradient)"/>
+    
+    <!-- Status bar -->
+    <rect x="8" y="12" width="184" height="30" rx="20" fill="#0a0a14"/>
+    
+    <!-- Top time/status -->
+    <text x="20" y="32" font-size="10" fill="#888" font-family="Arial">9:41</text>
+    <circle cx="175" cy="26" r="2" fill="#667eea"/>
+    <circle cx="182" cy="26" r="2" fill="#667eea"/>
+    <circle cx="189" cy="26" r="2" fill="#667eea"/>
+    
+    <!-- Dashboard Title -->
+    <text x="20" y="60" font-size="14" font-weight="bold" fill="#f5f5f5" font-family="Arial">Dashboard</text>
+    
+    <!-- Balance card -->
+    <rect x="15" y="75" width="170" height="70" rx="12" fill="#1a1a2e" stroke="#667eea" stroke-width="1" opacity="0.5"/>
+    <text x="25" y="95" font-size="10" fill="#999" font-family="Arial">Total Balance</text>
+    <text x="25" y="112" font-size="16" font-weight="bold" fill="#f5f5f5" font-family="Arial">$12,450.00</text>
+    <text x="25" y="135" font-size="8" fill="#667eea" font-family="Arial">+2.5% this month</text>
+    
+    <!-- Chart placeholder -->
+    <rect x="15" y="160" width="170" height="90" rx="12" fill="#0f0f1e" stroke="#764ba2" stroke-width="1" opacity="0.4"/>
+    <text x="25" y="175" font-size="10" fill="#999" font-family="Arial">Spending Analysis</text>
+    
+    <!-- Chart bars -->
+    <rect x="30" y="215" width="8" height="25" rx="2" fill="#667eea"/>
+    <rect x="45" y="205" width="8" height="35" rx="2" fill="#764ba2"/>
+    <rect x="60" y="195" width="8" height="45" rx="2" fill="#667eea"/>
+    <rect x="75" y="210" width="8" height="30" rx="2" fill="#764ba2"/>
+    <rect x="90" y="200" width="8" height="40" rx="2" fill="#667eea"/>
+    <rect x="105" y="220" width="8" height="20" rx="2" fill="#764ba2"/>
+    <rect x="120" y="205" width="8" height="35" rx="2" fill="#667eea"/>
+    <rect x="135" y="215" width="8" height="25" rx="2" fill="#764ba2"/>
+    <rect x="150" y="210" width="8" height="30" rx="2" fill="#667eea"/>
+    
+    <!-- Categories section -->
+    <rect x="15" y="270" width="170" height="100" rx="12" fill="#0f0f1e" stroke="#667eea" stroke-width="1" opacity="0.3"/>
+    <text x="25" y="285" font-size="10" fill="#999" font-family="Arial">Categories</text>
+    
+    <!-- Category items -->
+    <circle cx="22" cy="305" r="4" fill="#667eea"/>
+    <text x="30" y="308" font-size="9" fill="#ddd" font-family="Arial">Food & Dining</text>
+    <text x="140" y="308" font-size="9" fill="#999" font-family="Arial">$280</text>
+    
+    <circle cx="22" cy="325" r="4" fill="#764ba2"/>
+    <text x="30" y="328" font-size="9" fill="#ddd" font-family="Arial">Transport</text>
+    <text x="140" y="328" font-size="9" fill="#999" font-family="Arial">$145</text>
+    
+    <circle cx="22" cy="345" r="4" fill="#667eea"/>
+    <text x="30" y="348" font-size="9" fill="#ddd" font-family="Arial">Entertainment</text>
+    <text x="140" y="348" font-size="9" fill="#999" font-family="Arial">$95</text>
+    
+    <!-- Bottom navigation -->
+    <rect x="8" y="460" width="184" height="28" fill="#0a0a14"/>
+    <circle cx="35" cy="475" r="5" fill="#667eea"/>
+    <circle cx="100" cy="475" r="5" fill="#444"/>
+    <circle cx="165" cy="475" r="5" fill="#444"/>
+    
+    <!-- Phone notch -->
+    <rect x="75" y="0" width="50" height="20" rx="0" ry="10" fill="#1a1a1e"/>
+  </g>
+</svg>
