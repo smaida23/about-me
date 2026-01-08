@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maida Sabanovic - Mobile UI/UX Designer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --accent: #f093fb;
+      --dark: #1a1a2e;
+      --light: #f5f7fa;
+      --text: #2d3748;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      z-index: 2;
+      text-align: center;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: var(--light);
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #a0aec0;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.05) 100%);
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--light);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #a0aec0;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+    }
+
+    .skill-card:hover::before {
+      left: 100%;
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skill-card h3 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .skill-card p {
+      color: #a0aec0;
+      font-size: 0.95rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: rgba(102, 126, 234, 0.2);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .project-card h3 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .project-card p {
+      color: #a0aec0;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+    }
+
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tool-badge {
+      background: rgba(102, 126, 234, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .design-points {
+      margin-top: 0.5rem;
+      color: #a0aec0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-left: 1rem;
+    }
+
+    .design-points li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* About Section */
+    .about {
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.05) 100%);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      padding: 3rem;
+      border-radius: 15px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .about-content h2 {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .about-content p {
+      color: #a0aec0;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content h2 {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+    }
+
+    .contact-content p {
+      color: #a0aec0;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #a0aec0;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    /* Animations */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(30px);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.8rem;
+      }
+
+      .logo {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      nav ul {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      .hero {
+        margin-top: 100px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Maida Šabanović</h1>
+      <div class="subtitle">Mobile App UI/UX Designer</div>
+      <p>Creating beautiful, intuitive, and user-centered mobile experiences that engage and delight users. With a passion for design excellence and user empathy, I transform complex ideas into seamless digital products. My approach combines research-driven insights with creative problem-solving to deliver designs that truly resonate with users.</p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <div class="section-title">My Core Competencies</div>
+    <p class="section-subtitle">Specializing in mobile-first design and user experience</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>UI Design</h3>
+        <p>Creating visually stunning interfaces with modern design principles, color theory, and typography.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">👥</div>
+        <h3>UX Research</h3>
+        <p>User interviews, personas, journey mapping, and usability testing to inform design decisions.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>Mobile Design</h3>
+        <p>Responsive and adaptive designs optimized for iOS and Android platforms with intuitive navigation.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎬</div>
+        <h3>Interaction Design</h3>
+        <p>Microinteractions, animations, and transitions that create seamless user experiences.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Prototyping</h3>
+        <p>High-fidelity prototypes using industry-leading tools like Figma, Adobe XD, and Framer.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">✨</div>
+        <h3>User Testing</h3>
+        <p>Conducting A/B tests, gathering feedback, and iterating designs based on user behavior.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="section-title">Featured Projects</div>
+    <p class="section-subtitle">Mobile applications with exceptional user experiences</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Flow Music App" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>MusicFlow - Music Streaming</h3>
+          <p>A modern music streaming application with personalized playlists, seamless playback controls, and social music discovery. Designed to create an immersive listening experience with smooth navigation and expressive animations.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>Music User Behavior Research — understanding listening habits and preferences</li>
+            <li>Wireframing & Flow Design — designing intuitive player controls and playlist management</li>
+            <li>Visual Design & Animations — creating engaging UI with smooth microinteractions</li>
+          </ul>
+          <div style="margin-top:1rem;">
+            <a href="/assets/figma.html"  class="btn btn-secondary" rel="noopener">View Music Flow</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=400&fit=crop" alt="CookMate Recipe App" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>Smart Recipe – Personalized Recipe App</h3>
+          <p>A comprehensive recipe discovery app featuring personalized meal suggestions, step-by-step cooking guides, and ingredient-based search. Designed with an intuitive interface to make cooking accessible and enjoyable for all skill levels.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>User Research & Personas — understanding cooking preferences and pain points</li>
+            <li>Information Architecture — organizing recipes and designing navigation flows</li>
+            <li>Visual Design & Prototyping — creating engaging UI with interactive elements</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+            <span class="tool-badge">User Testing</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="/assets/cookm.html" class="btn btn-secondary"  rel="noopener">View Smart Recipe</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div><img style="width: 100%; height: auto;" src="/assets/Smart spend background.png"></div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>Smart Spend - Money Manager</h3>
+          <p>A personal finance management app that helps users track expenses, create budgets, and achieve financial goals. Features intuitive categorization, visual analytics, and smart spending insights to empower better financial decisions.</p>
+          <p><strong>Role:</strong> UX/UI Designer</p>
+          <ul class="design-points">
+            <li>Financial Behavior Research — understanding spending patterns and user goals</li>
+            <li>Wireframing & User Flows — designing budget tracking and expense categorization</li>
+            <li>Data Visualization & Design — making complex financial data accessible and actionable</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+            <span class="tool-badge">User Testing</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="/assets/moneyManager.html" class="btn btn-secondary"  rel="noopener">View Smart Spend</a>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="section-title">About Me</div>
+    <div class="about-content">
+      <h2>Creative Problem Solver & Design Enthusiast</h2>
+      <p>
+        I'm a passionate UI/UX designer dedicated to creating mobile applications that solve real problems and bring joy to users. With a deep understanding of user-centered design principles, I craft interfaces that are not only beautiful but highly functional and intuitive.
+      </p>
+      <p>
+        My design philosophy revolves around simplicity, accessibility, and user empathy. I believe that great design is invisible—it guides users effortlessly toward their goals while creating memorable experiences. Every pixel, color, and interaction is carefully considered to deliver exceptional digital products.
+      </p>
+      <p>
+        When I'm not designing, I'm exploring the latest design trends, learning new tools, and collaborating with developers and product managers to bring visions to life.
+      </p>
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
+        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">Design Tools & Technologies</h3>
+        <p style="color: #a0aec0; margin-bottom: 0.5rem;">
+          <strong>Primary Tools:</strong> Figma, Adobe XD, Framer
+        </p>
+        <p style="color: #a0aec0; margin-bottom: 0.5rem;">
+          <strong>Specializations:</strong> Mobile App Design, UX Research, Wireframing, Prototyping, User Testing, Interaction Design
+        </p>
+        <p style="color: #a0aec0;">
+          <strong>Contact:</strong> <a href="mailto:smaaida@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 600;">smaaida@gmail.com</a>
+        </p>
+      </div>
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
+        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">UX/UI Skills</h3>
+        <p style="color: #a0aec0;">
+          <strong>Core Competencies:</strong> Wireframing, Prototyping, User Research, Interaction Design
+        </p>
+      </div>
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
+        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">Other Skills</h3>
+        <p style="color: #a0aec0;">
+          <strong>Technical Knowledge:</strong> HTML, CSS, JavaScript, React
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-content">
+      <h2>Let's Work Together</h2>
+      <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+      <div class="social-links">
+        <a href="#" class="social-icon" title="LinkedIn">in</a>
+        <a href="#" class="social-icon" title="Dribbble">🎨</a>
+        <a href="#" class="social-icon" title="Behance">b</a>
+        <a href="mailto:smaaida@gmail.com" class="social-icon" title="Email">✉️</a>
+      </div>
+      <a href="mailto:smaaida@gmail.com" class="btn btn-primary">Send Me an Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Maida Sabanovic. All rights reserved. | Crafted with ❤️ and creativity.</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
