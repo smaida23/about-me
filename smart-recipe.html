@@ -197,10 +197,7 @@
 
     function updateImage() {
       sliderImage.style.opacity = 0;
-      setTimeout(() => {
-        sliderImage.src = images[currentIndex];
-        sliderImage.style.opacity = 1;
-      }, 200);
+      
     }
 
     document.getElementById("next").addEventListener("click", () => {
