@@ -196,9 +196,8 @@
     const sliderImage = document.getElementById("sliderImage");
 
     function updateImage() {
-      sliderImage.style.opacity = 0;
-      
-    }
+  sliderImage.src = images[currentIndex];
+}
 
     document.getElementById("next").addEventListener("click", () => {
       currentIndex = (currentIndex + 1) % images.length;
