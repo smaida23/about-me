@@ -26,6 +26,7 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Navigation */
@@ -66,6 +67,7 @@
       transition: all 0.3s ease;
       position: relative;
       font-size: 0.95rem;
+      padding: 0.5rem 0;
     }
 
     nav a::after {
@@ -77,6 +79,10 @@
       height: 2px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     nav a:hover::after {
@@ -119,6 +125,7 @@
       margin-bottom: 1rem;
       font-weight: 800;
       letter-spacing: -1px;
+      animation: fadeInDown 0.8s ease-out;
     }
 
     .hero .subtitle {
@@ -129,6 +136,7 @@
       background-clip: text;
       margin-bottom: 2rem;
       font-weight: 600;
+      animation: fadeInDown 0.8s ease-out 0.2s backwards;
     }
 
     .hero p {
@@ -138,6 +146,7 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
     }
 
     .cta-buttons {
@@ -145,6 +154,7 @@
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.6s backwards;
     }
 
     .btn {
@@ -163,6 +173,19 @@
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
     }
 
     .btn-primary:hover {
@@ -170,15 +193,40 @@
       box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
     }
 
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
     .btn-secondary {
       background: transparent;
       color: var(--light);
       border: 2px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transition: left 0.3s ease;
+      z-index: -1;
     }
 
     .btn-secondary:hover {
-      background: var(--primary);
+      color: white;
+      border-color: var(--accent);
       transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary:hover::before {
+      left: 0;
     }
 
     /* Skills Section */
@@ -194,6 +242,25 @@
       color: var(--light);
       margin-bottom: 1rem;
       font-weight: 700;
+      animation: fadeInDown 0.8s ease-out;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      animation: expandWidth 0.8s ease-out 0.3s forwards;
+      transform-origin: center;
+      width: 0;
     }
 
     .section-subtitle {
@@ -201,6 +268,7 @@
       color: #a0aec0;
       margin-bottom: 3rem;
       font-size: 1.1rem;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     .skills-grid {
@@ -220,7 +288,16 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
     }
+
+    .skills-grid .skill-card:nth-child(1) { animation-delay: 0.1s; }
+    .skills-grid .skill-card:nth-child(2) { animation-delay: 0.2s; }
+    .skills-grid .skill-card:nth-child(3) { animation-delay: 0.3s; }
+    .skills-grid .skill-card:nth-child(4) { animation-delay: 0.4s; }
+    .skills-grid .skill-card:nth-child(5) { animation-delay: 0.5s; }
+    .skills-grid .skill-card:nth-child(6) { animation-delay: 0.6s; }
 
     .skill-card::before {
       content: '';
@@ -237,6 +314,11 @@
       transform: translateY(-10px);
       border-color: var(--accent);
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+
+    .skill-card:hover .skill-icon {
+      animation: bounceIn 0.6s ease-out;
     }
 
     .skill-card:hover::before {
@@ -251,6 +333,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      transition: all 0.3s ease;
     }
 
     .skill-card h3 {
@@ -262,6 +345,12 @@
     .skill-card p {
       color: #a0aec0;
       font-size: 0.95rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
     }
 
     /* Projects Section */
@@ -286,11 +375,19 @@
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
     }
+
+    .projects-grid .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .projects-grid .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .projects-grid .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .projects-grid .project-card:nth-child(4) { animation-delay: 0.4s; }
+    .projects-grid .project-card:nth-child(5) { animation-delay: 0.5s; }
 
     .project-image {
       width: 100%;
-      height: 200px;
+      height: 260px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       display: flex;
       align-items: center;
@@ -298,6 +395,11 @@
       font-size: 3rem;
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
     }
 
     .project-image::before {
@@ -324,6 +426,14 @@
       font-size: 0.8rem;
       margin-bottom: 1rem;
       font-weight: 600;
+      transition: all 0.3s ease;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .project-card:hover .project-tag {
+      background: rgba(102, 126, 234, 0.35);
+      color: var(--accent);
+      transform: scale(1.05);
     }
 
     .project-card h3 {
@@ -342,6 +452,11 @@
       transform: translateY(-10px);
       border-color: var(--accent);
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+    }
+
+    .project-card:hover .project-image::before {
+      animation: shimmer 0.8s ease-in-out;
     }
 
     .project-tools {
@@ -357,6 +472,19 @@
       border-radius: 15px;
       font-size: 0.75rem;
       border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out backwards;
+      display: inline-block;
+    }
+
+    .project-tools .tool-badge:nth-child(1) { animation-delay: 0.1s; }
+    .project-tools .tool-badge:nth-child(2) { animation-delay: 0.2s; }
+
+    .tool-badge:hover {
+      background: rgba(102, 126, 234, 0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .design-points {
@@ -384,12 +512,21 @@
       padding: 3rem;
       border-radius: 15px;
       border: 1px solid rgba(102, 126, 234, 0.2);
+      animation: fadeInUp 0.8s ease-out;
+      transition: all 0.3s ease;
+    }
+
+    .about-content:hover {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
     }
 
     .about-content h2 {
       color: var(--light);
       margin-bottom: 1.5rem;
       font-size: 2rem;
+      animation: fadeInDown 0.8s ease-out;
     }
 
     .about-content p {
@@ -397,7 +534,78 @@
       margin-bottom: 1rem;
       font-size: 1.05rem;
       line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out;
     }
+
+    .about-content p:nth-of-type(1) { animation-delay: 0.1s; }
+    .about-content p:nth-of-type(2) { animation-delay: 0.2s; }
+    .about-content p:nth-of-type(3) { animation-delay: 0.3s; }
+
+    .about-section {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .about-section:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .about-section h3 {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .about-section-icon {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-section p {
+      color: #a0aec0;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .skill-item {
+      display: inline-block;
+      background: rgba(102, 126, 234, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .skill-item:hover {
+      background: rgba(102, 126, 234, 0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .about-section:nth-child(2) .skill-item { animation-delay: 0.1s; }
+    .about-section:nth-child(2) .skill-item:nth-child(2) { animation-delay: 0.2s; }
+    .about-section:nth-child(2) .skill-item:nth-child(3) { animation-delay: 0.3s; }
+    .about-section:nth-child(3) .skill-item { animation-delay: 0.1s; }
+    .about-section:nth-child(3) .skill-item:nth-child(2) { animation-delay: 0.2s; }
+    .about-section:nth-child(3) .skill-item:nth-child(3) { animation-delay: 0.3s; }
+    .about-section:nth-child(4) .skill-item { animation-delay: 0.1s; }
+    .about-section:nth-child(4) .skill-item:nth-child(2) { animation-delay: 0.2s; }
 
     /* Contact Section */
     .contact {
@@ -442,10 +650,17 @@
       font-size: 1.3rem;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
     }
 
+    .social-links .social-icon:nth-child(1) { animation-delay: 0.1s; }
+    .social-links .social-icon:nth-child(2) { animation-delay: 0.2s; }
+    .social-links .social-icon:nth-child(3) { animation-delay: 0.3s; }
+    .social-links .social-icon:nth-child(4) { animation-delay: 0.4s; }
+
     .social-icon:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) rotate(5deg) scale(1.1);
       box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
     }
 
@@ -455,6 +670,7 @@
       padding: 2rem;
       color: #a0aec0;
       border-top: 1px solid rgba(102, 126, 234, 0.2);
+      animation: fadeInUp 0.8s ease-out;
     }
 
     /* Animations */
@@ -469,6 +685,34 @@
       }
     }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes expandWidth {
+      to {
+        width: 60px;
+      }
+    }
+
     @keyframes float {
       0%, 100% {
         transform: translateY(0px);
@@ -478,12 +722,55 @@
       }
     }
 
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(102, 126, 234, 0.3), inset 0 0 5px rgba(102, 126, 234, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.6), inset 0 0 10px rgba(102, 126, 234, 0.2);
+      }
+    }
+
     @keyframes shimmer {
       0% {
         left: -100%;
       }
       100% {
         left: 100%;
+      }
+    }
+
+    @keyframes textReveal {
+      from {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
 
@@ -583,9 +870,28 @@
         grid-template-columns: 1fr;
       }
 
+      .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .showcase-item img {
+        height: 180px;
+      }
+
+      .showcase-title {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -593,6 +899,11 @@
 <body>
   <!-- Navigation -->
   <nav>
+    <div class="logo">MS</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -607,6 +918,103 @@
         <a href="#projects" class="btn btn-primary">View My Work</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
       </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="section-title">Featured Projects</div>
+    <p class="section-subtitle">Mobile applications with exceptional user experiences</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="Smart spend background.png" alt="Smart Spend Money Manager" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>Smart Spend</h3>
+          <p>Finance app for tracking expenses and managing budgets with visual analytics.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="moneyManager.html" class="btn btn-secondary"  rel="noopener">View App</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="teretana.jpg" alt="Another App" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>Fitvibe</h3>
+          <p>Fitness app with personalized workout plans and progress tracking.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Design</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="fitvibe.html" class="btn btn-secondary" rel="noopener">View App</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Flow Music App" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>MusicFlow - Music Streaming</h3>
+          <p>Modern music streaming with personalized playlists and AI recommendations.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="figma.html"  class="btn btn-secondary" rel="noopener">View App</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=400&fit=crop" alt="CookMate Recipe App" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>Smart Recipe</h3>
+          <p>Recipe discovery with personalized suggestions based on your ingredients.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Prototyping</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="smart-recipe.html" class="btn btn-secondary"  rel="noopener">View App</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="mzikr35.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="project-content">
+          <span class="project-tag">iOS & Android</span>
+          <h3>mZikr</h3>
+          <p>Dhikr app for daily remembrance with guided practice and progress tracking.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">Design</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="mzikr.html" class="btn btn-secondary" rel="noopener">View App</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -648,140 +1056,46 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <div class="section-title">Featured Projects</div>
-    <p class="section-subtitle">Mobile applications with exceptional user experiences</p>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Flow Music App" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>MusicFlow - Music Streaming</h3>
-          <p>A modern music streaming app with personalized playlists and immersive listening experience. Discover new music that matches your taste with AI-powered recommendations.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">Prototyping</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="figma.html"  class="btn btn-secondary" rel="noopener">View App</a>
-          </div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=400&fit=crop" alt="CookMate Recipe App" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>Smart Recipe</h3>
-          <p>Recipe discovery app with personalized suggestions and cooking guides. Find the perfect recipe based on the ingredients you have at home.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">Prototyping</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="smart-recipe.html" class="btn btn-secondary"  rel="noopener">View App</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="Smart spend background.png" alt="Smart Spend Money Manager" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>Smart Spend</h3>
-          <p>Finance app for tracking expenses and managing budgets with visual analytics. Gain insights into your spending habits and achieve your financial goals faster.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">Prototyping</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="moneyManager.html" class="btn btn-secondary"  rel="noopener">View App</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="mzikr35.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>mZikr</h3>
-          <p>Dhikr app for daily remembrance with guided practice and distraction-free interface. Build consistent spiritual habits with progress tracking and personalized reminders.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">Design</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="mzikr.html" class="btn btn-secondary" rel="noopener">View App</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image">
-          <img src="teretana.jpg" alt="Another App" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <div class="project-content">
-          <span class="project-tag">iOS & Android</span>
-          <h3>Fitvibe</h3>
-          <p>Fitness app with personalized workout plans and progress tracking. Stay motivated with customized routines designed for your fitness level and goals.</p>
-          <div class="project-tools">
-            <span class="tool-badge">Figma</span>
-            <span class="tool-badge">Design</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="fitvibe.html" class="btn btn-secondary" rel="noopener">View App</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- About Section -->
   <section class="about" id="about">
     <div class="section-title">About Me</div>
     <div class="about-content">
       <h2>Creative Problem Solver & Design Enthusiast</h2>
-      <p>
-        I'm a passionate UI/UX designer dedicated to creating mobile applications that solve real problems and bring joy to users. With a deep understanding of user-centered design principles, I craft interfaces that are not only beautiful but highly functional and intuitive.
-      </p>
-      <p>
-        My design philosophy revolves around simplicity, accessibility, and user empathy. I believe that great design is invisible—it guides users effortlessly toward their goals while creating memorable experiences. Every pixel, color, and interaction is carefully considered to deliver exceptional digital products.
-      </p>
-      <p>
-        When I'm not designing, I'm exploring the latest design trends, learning new tools, and collaborating with developers and product managers to bring visions to life.
-      </p>
-      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
-        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">Design Tools & Technologies</h3>
-        <p style="color: #a0aec0; margin-bottom: 0.5rem;">
-          <strong>Primary Tools:</strong> Figma
+      <div class="about-section">
+        <p>
+          I'm a passionate UI/UX designer dedicated to creating mobile applications that solve real problems and bring joy to users. With a deep understanding of user-centered design principles, I craft interfaces that are not only beautiful but highly functional and intuitive.
         </p>
-        <p style="color: #a0aec0; margin-bottom: 0.5rem;">
-          <strong>Specializations:</strong> Mobile App Design, UX Research, Wireframing, Prototyping, User Testing, Interaction Design
-        </p>
-        <p style="color: #a0aec0;">
-          <strong>Contact:</strong> <a href="mailto:smaida2325@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 600;">smaida2325@gmail.com</a>
+        <p>
+          My design philosophy revolves around simplicity, accessibility, and user empathy. I believe that great design is invisible—it guides users effortlessly toward their goals while creating memorable experiences. Every pixel, color, and interaction is carefully considered to deliver exceptional digital products.
         </p>
       </div>
-      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
-        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">UX/UI Skills</h3>
-        <p style="color: #a0aec0;">
-          <strong>Core Competencies:</strong> Wireframing, Prototyping, User Research, Interaction Design
-        </p>
+
+      <div class="about-section">
+        <h3><span class="about-section-icon">🛠️</span>Design Tools & Technologies</h3>
+        <p><strong>Primary Tool:</strong> Figma</p>
+        <p style="margin-bottom: 1.5rem;"><strong>Contact:</strong> <a href="mailto:smaida2325@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 600;">smaida2325@gmail.com</a></p>
       </div>
-      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(102, 126, 234, 0.2);">
-        <h3 style="color: var(--light); margin-bottom: 1rem; font-size: 1.2rem;">Other Skills</h3>
-        <p style="color: #a0aec0;">
-          <strong>Technical Knowledge:</strong> HTML, CSS, JavaScript, React
-        </p>
+
+      <div class="about-section">
+        <h3><span class="about-section-icon">✨</span>Core Competencies</h3>
+        <div>
+          <span class="skill-item">Mobile App Design</span>
+          <span class="skill-item">UX Research</span>
+          <span class="skill-item">Wireframing</span>
+          <span class="skill-item">Prototyping</span>
+          <span class="skill-item">User Testing</span>
+          <span class="skill-item">Interaction Design</span>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h3><span class="about-section-icon">💻</span>Technical Skills</h3>
+        <div>
+          <span class="skill-item">HTML</span>
+          <span class="skill-item">CSS</span>
+          <span class="skill-item">JavaScript</span>
+          <span class="skill-item">React</span>
+        </div>
       </div>
     </div>
   </section>
