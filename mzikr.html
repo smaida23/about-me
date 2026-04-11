@@ -13,8 +13,8 @@
     body {
       margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      color: #f5f5f5;
+      background: #ffffff;
+      color: #000000;
     }
 
     .container {
@@ -38,7 +38,7 @@
       max-width: 600px;
       font-size: 18px;
       line-height: 1.6;
-      color: #b5b5b5;
+      color: #666666;
     }
 
     .project {
@@ -112,6 +112,61 @@
       color: #fff;
     }
 
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #667eea;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 32px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.1);
+      border: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .back-link:hover {
+      color: #f093fb;
+      background: rgba(240, 147, 251, 0.1);
+      border-color: rgba(240, 147, 251, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .case-study {
+      margin: 60px 0;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+      border-radius: 16px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .case-study h2 {
+      font-size: 32px;
+      margin: 0 0 24px;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #667eea, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .case-study p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333333;
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .highlight {
+      color: #f093fb;
+      font-weight: 600;
+    }
+
     .actions a {
       display: inline-block;
       padding: 14px 24px;
@@ -129,6 +184,45 @@
       border: 1px solid #333;
     }
 
+    .gallery {
+      margin-top: 80px;
+      padding-top: 80px;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .gallery h2 {
+      font-size: 32px;
+      margin: 0 0 32px;
+      text-align: center;
+      letter-spacing: -0.02em;
+      color: #000000;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 900px) {
       .project {
         grid-template-columns: 1fr;
@@ -144,74 +238,46 @@
 
   <div class="container">
 
+    <a href="index.html" class="back-link">←</a>
+
     <header>
-      <h1>UI / UX Portfolio</h1>
+      <h1>mZikr - Islamic App</h1>
       <p>
-        Selected case study showcasing my approach to product design,
-        user experience and interface design for mobile applications.
+        Zikr App is a minimalist Islamic mobile application designed to help users stay consistent with daily remembrance (zikr). It offers guided morning and evening zikr, progress tracking, and simple statistics to support spiritual focus and habit-building. The calm visual design and intuitive flow create a peaceful, distraction-free experience.
       </p>
     </header>
 
-    <section class="project">
-
-      <div class="slider">
-        <button class="arrow left" id="prev">&#10094;</button>
-        <img id="sliderImage" src="" alt="App design preview">
-        <button class="arrow right" id="next">&#10095;</button>
-      </div>
-
-      <div class="details">
-        <h2>mZikr</h2>
-        <p>
-          Zikr App is a minimalist Islamic mobile application designed to help users stay consistent with daily remembrance (zikr). It offers guided morning and evening zikr, progress tracking, and simple statistics to support spiritual focus and habit-building. The calm visual design and intuitive flow create a peaceful, distraction-free experience.
-        </p>
-
-        <div class="tags">
-          <span class="tag">UI Design</span>
-          <span class="tag">UX Research</span>
-          <span class="tag">Mobile App</span>
-          <span class="tag">Figma</span>
-        </div>
-
-        <div class="actions">
-          <a href="index.html">Home</a>
-          <a href="mzikr-case-study.html" class="secondary">Case Study</a>
+    <section class="gallery">
+      <h2>All Design Screens</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="12.png" alt="mZikr Design">
         </div>
       </div>
+    </section>
 
+    <section class="case-study">
+      <h2>mZikr – UI/UX Design</h2>
+      <p>
+        <span class="highlight">mZikr</span> is a thoughtfully designed mobile application that helps users discover and organize Islamic remembrance (zikr) in a simple and efficient way. By combining personalized recommendations with an intuitive interface, the app makes everyday spiritual practice easier and more enjoyable.
+      </p>
+      <p>
+        Zikr App is a mobile application designed to help users maintain consistency in daily remembrance (zikr). The app focuses on simplicity, calm visuals, and habit-building features such as guided zikr sessions and progress tracking. The goal was to create a peaceful digital space that supports spiritual routines without distractions.
+      </p>
+      <p>
+        Many users struggle to stay consistent with daily zikr due to lack of structure and reminders, overly complex or visually noisy religious apps, and no clear sense of progress or motivation. The design solutions focus on encouraging daily zikr habits (morning & evening), creating a calm, minimal, and spiritually respectful interface, providing gentle motivation through progress and statistics, and being easy to use for all age groups.
+      </p>
+      <p>
+        The UX process included comprehensive research and inspiration analysis, targeting Muslims who want to build or maintain a daily zikr routine, users who prefer simple, distraction-free apps, and beginners looking for guidance as well as experienced users.
+      </p>
+      <p>
+        The final design delivers a simple, motivating spiritual experience that supports consistency and habit-building while maintaining a calm, respectful visual identity.
+      </p>
     </section>
 
   </div>
 
   <script>
-    // 👇 UBACI SVOJE SLIKE
-    const images = [
-      "12.png",
-    
-    ];
-
-    let currentIndex = 0;
-    const sliderImage = document.getElementById("sliderImage");
-
-    function updateImage() {
-      sliderImage.style.opacity = 0;
-      setTimeout(() => {
-        sliderImage.src = images[currentIndex];
-        sliderImage.style.opacity = 1;
-      }, 200);
-    }
-
-    document.getElementById("next").addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateImage();
-    });
-
-    document.getElementById("prev").addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateImage();
-    });
-
-    updateImage();
   </script>
 
 </body>
