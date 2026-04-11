@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before & After — Maida Sabanovic</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #7c5cbf;
+      --accent-light: #ede8f9;
+      --bg: #f9f7fe;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background: var(--white);
+      box-shadow: 0 1px 8px rgba(0,0,0,.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .95rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 2.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      margin-top: .75rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-inline: auto;
+    }
+
+    /* ── GRID ── */
+    .projects {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 5rem;
+      display: grid;
+      gap: 3rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+    .card-header {
+      padding: 1.5rem 1.75rem 1rem;
+      border-bottom: 1px solid #f0ecfb;
+    }
+    .card-header .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .card-header h2 { font-size: 1.2rem; font-weight: 700; }
+    .card-header p  { font-size: .9rem; color: var(--muted); margin-top: .25rem; }
+
+    /* ── SLIDER ── */
+    .slider-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/8;
+      overflow: hidden;
+      cursor: col-resize;
+      user-select: none;
+      touch-action: none;
+    }
+
+    /* BEFORE image (underneath, full-width) */
+    .img-before,
+    .img-after {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* AFTER image clipped by CSS variable --split */
+    .img-after {
+      clip-path: inset(0 0 0 var(--split, 50%));
+    }
+
+    /* Divider line */
+    .slider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split, 50%);
+      transform: translateX(-50%);
+      width: 3px;
+      background: var(--white);
+      box-shadow: 0 0 8px rgba(0,0,0,.3);
+      pointer-events: none;
+    }
+
+    /* Handle circle */
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: var(--split, 50%);
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .slider-handle svg { width: 20px; height: 20px; color: var(--accent); }
+
+    /* Labels */
+    .label {
+      position: absolute;
+      bottom: 12px;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: .3rem .75rem;
+      border-radius: 99px;
+      pointer-events: none;
+    }
+    .label-before { left: 14px;  background: rgba(0,0,0,.55); color: #fff; }
+    .label-after  { right: 14px; background: var(--accent);   color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: .875rem;
+      border-top: 1px solid #ece8f8;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Maida Sabanovic</span>
+  <a href="index.html">← Back to Portfolio</a>
+</nav>
+
+<section class="hero">
+  <h1>Before <span>&</span> After</h1>
+  <p>Drag the slider to compare my redesign work — see the original alongside the improved result.</p>
+</section>
+
+<main class="projects">
+
+  <!-- ── PROJECT 1 ── -->
+  <article class="card">
+    <div class="card-header">
+      <span class="tag">UI Redesign</span>
+      <h2>Mobile App — Login Screen</h2>
+      <p>Simplified layout, improved contrast, and a friendlier onboarding flow.</p>
+    </div>
+    <div class="slider-wrap" style="--split:50%">
+      <!-- Replace src with your real images -->
+      <img class="img-before" src="https://placehold.co/1100x550/d0c4f0/5a3e9e?text=BEFORE" alt="Before redesign">
+      <img class="img-after"  src="https://placehold.co/1100x550/7c5cbf/ffffff?text=AFTER"  alt="After redesign">
+      <div class="slider-line"></div>
+      <div class="slider-handle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+          <polyline points="9 18 3 12 9 6" transform="translate(6,0)"/>
+        </svg>
+      </div>
+      <span class="label label-before">Before</span>
+      <span class="label label-after">After</span>
+    </div>
+  </article>
+
+  <!-- ── PROJECT 2 ── -->
+  <article class="card">
+    <div class="card-header">
+      <span class="tag">UX Improvement</span>
+      <h2>E-commerce Product Page</h2>
+      <p>Restructured information hierarchy and added social-proof elements to boost conversions.</p>
+    </div>
+    <div class="slider-wrap" style="--split:50%">
+      <img class="img-before" src="https://placehold.co/1100x550/c8bcec/4a2e8e?text=BEFORE" alt="Before redesign">
+      <img class="img-after"  src="https://placehold.co/1100x550/9b7dd4/ffffff?text=AFTER"  alt="After redesign">
+      <div class="slider-line"></div>
+      <div class="slider-handle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+          <polyline points="9 18 3 12 9 6" transform="translate(6,0)"/>
+        </svg>
+      </div>
+      <span class="label label-before">Before</span>
+      <span class="label label-after">After</span>
+    </div>
+  </article>
+
+  <!-- ── PROJECT 3 ── -->
+  <article class="card">
+    <div class="card-header">
+      <span class="tag">Dashboard</span>
+      <h2>Analytics Dashboard</h2>
+      <p>Replaced cluttered tables with clear data-viz components and a consistent design system.</p>
+    </div>
+    <div class="slider-wrap" style="--split:50%">
+      <img class="img-before" src="https://placehold.co/1100x550/bfb0e8/3d2080?text=BEFORE" alt="Before redesign">
+      <img class="img-after"  src="https://placehold.co/1100x550/6040aa/ffffff?text=AFTER"  alt="After redesign">
+      <div class="slider-line"></div>
+      <div class="slider-handle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+          <polyline points="9 18 3 12 9 6" transform="translate(6,0)"/>
+        </svg>
+      </div>
+      <span class="label label-before">Before</span>
+      <span class="label label-after">After</span>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  &copy; 2024 <a href="index.html">Maida Sabanovic</a> · UI/UX Designer
+</footer>
+
+<script>
+  document.querySelectorAll('.slider-wrap').forEach(wrap => {
+    const setPosition = pct => {
+      // clamp between 5% and 95%
+      const clamped = Math.min(95, Math.max(5, pct));
+      wrap.style.setProperty('--split', clamped + '%');
+    };
+
+    const getPercent = clientX => {
+      const rect = wrap.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    };
+
+    // Mouse
+    wrap.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const move = e2 => setPosition(getPercent(e2.clientX));
+      const up   = () => { document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); };
+      document.addEventListener('mousemove', move);
+      document.addEventListener('mouseup', up);
+      move(e);
+    });
+
+    // Touch
+    wrap.addEventListener('touchstart', e => {
+      const move = e2 => { e2.preventDefault(); setPosition(getPercent(e2.touches[0].clientX)); };
+      const end  = () => { document.removeEventListener('touchmove', move); document.removeEventListener('touchend', end); };
+      document.addEventListener('touchmove', move, { passive: false });
+      document.addEventListener('touchend', end);
+      setPosition(getPercent(e.touches[0].clientX));
+    }, { passive: true });
+  });
+</script>
+
+</body>
+</html>
