@@ -74,20 +74,24 @@
     }
 
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-grid;
+      place-items: center;
       color: #667eea;
       text-decoration: none;
       margin-bottom: 20px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 32px;
+      transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
       width: 50px;
       height: 50px;
+      padding: 0;
       border-radius: 50%;
       background: rgba(102, 126, 234, 0.1);
       border: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .back-link-icon {
+      display: block;
+      width: 22px;
+      height: 22px;
     }
 
     .back-link:hover {
@@ -147,7 +151,9 @@
 
   <div class="container">
 
-    <a href="index.html" class="back-link">←</a>
+    <a href="index.html" class="back-link" aria-label="Back to portfolio">
+      <svg class="back-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
 
     <header>
       <h1>Smart Spend - Money Manager</h1>
