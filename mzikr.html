@@ -208,9 +208,11 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr;
       gap: 32px;
       align-items: stretch;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .gallery-item {
@@ -271,6 +273,7 @@
       aspect-ratio: auto !important;
       max-height: none;
       padding: 0;
+      min-height: 500px;
     }
 
     .portfolio-video {
