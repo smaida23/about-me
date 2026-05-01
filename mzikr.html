@@ -175,6 +175,36 @@
       font-weight: 600;
     }
 
+    .project-snapshot {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .snapshot-item {
+      background: rgba(102, 126, 234, 0.08);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .snapshot-label {
+      display: block;
+      font-size: 12px;
+      color: #666666;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .snapshot-value {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
     .actions a {
       display: inline-block;
       padding: 14px 24px;
@@ -408,6 +438,12 @@
 
     <section class="case-study">
       <h2>SERAFFINE — Luxury Jewelry E-commerce Design</h2>
+      <div class="project-snapshot">
+        <div class="snapshot-item"><span class="snapshot-label">Role</span><span class="snapshot-value">UI/UX Designer</span></div>
+        <div class="snapshot-item"><span class="snapshot-label">Timeline</span><span class="snapshot-value">4 Weeks</span></div>
+        <div class="snapshot-item"><span class="snapshot-label">Tools</span><span class="snapshot-value">Figma, Prototyping</span></div>
+        <div class="snapshot-item"><span class="snapshot-label">Focus</span><span class="snapshot-value">Luxury visual hierarchy</span></div>
+      </div>
       <p><span class="highlight">Overview</span></p>
       <p>Serafine is a conceptual luxury jewelry e-commerce platform designed to deliver a refined and visually driven shopping experience. The project focuses on presenting high-end products through a clean interface that emphasizes craftsmanship, detail, and timeless aesthetics.</p>
       
