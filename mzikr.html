@@ -208,8 +208,9 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 32px;
+      align-items: stretch;
     }
 
     .gallery-item {
@@ -231,9 +232,66 @@
       display: block;
     }
 
+    .macbook-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .macbook-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fa;
+      aspect-ratio: 16 / 9;
+    }
+
+    .macbook-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+    }
+
+    .gallery-grid:nth-of-type(2) .macbook-item {
+      aspect-ratio: 1 / 1;
+    }
+
+    .video-showcase {
+      grid-template-columns: 1fr !important;
+      margin-top: 32px;
+    }
+
+    .video-showcase .macbook-item {
+      aspect-ratio: auto !important;
+      max-height: none;
+      padding: 0;
+    }
+
+    .portfolio-video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
     @media (max-width: 900px) {
       .project {
         grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .macbook-item {
+        min-height: 300px;
+        padding: 16px;
       }
 
       header h1 {
@@ -251,38 +309,66 @@
     </a>
 
     <header>
-      <h1>mZikr - Islamic App</h1>
+      <h1>Luxury jewelry website</h1>
       <p>
-        Zikr App is a minimalist Islamic mobile application designed to help users stay consistent with daily remembrance (zikr). It offers guided morning and evening zikr, progress tracking, and simple statistics to support spiritual focus and habit-building. The calm visual design and intuitive flow create a peaceful, distraction-free experience.
-      </p>
+
     </header>
 
     <section class="gallery">
       <h2>All Design Screens</h2>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="12.png" alt="mZikr Design">
+          <img src="Frame 36.png" alt="Luxury Jewelry Website Design">
+        </div>
+        <div class="gallery-item macbook-item">
+          <img src="MacBook-Pro-16.png" alt="Luxury Jewelry Website Design" class="macbook-image">
+        </div>
+      </div>
+      <div class="gallery-grid video-showcase">
+        <div class="gallery-item macbook-item">
+          <video class="portfolio-video" controls>
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
 
     <section class="case-study">
-      <h2>mZikr – UI/UX Design</h2>
-      <p>
-        <span class="highlight">mZikr</span> is a thoughtfully designed mobile application that helps users discover and organize Islamic remembrance (zikr) in a simple and efficient way. By combining personalized recommendations with an intuitive interface, the app makes everyday spiritual practice easier and more enjoyable.
-      </p>
-      <p>
-        Zikr App is a mobile application designed to help users maintain consistency in daily remembrance (zikr). The app focuses on simplicity, calm visuals, and habit-building features such as guided zikr sessions and progress tracking. The goal was to create a peaceful digital space that supports spiritual routines without distractions.
-      </p>
-      <p>
-        Many users struggle to stay consistent with daily zikr due to lack of structure and reminders, overly complex or visually noisy religious apps, and no clear sense of progress or motivation. The design solutions focus on encouraging daily zikr habits (morning & evening), creating a calm, minimal, and spiritually respectful interface, providing gentle motivation through progress and statistics, and being easy to use for all age groups.
-      </p>
-      <p>
-        The UX process included comprehensive research and inspiration analysis, targeting Muslims who want to build or maintain a daily zikr routine, users who prefer simple, distraction-free apps, and beginners looking for guidance as well as experienced users.
-      </p>
-      <p>
-        The final design delivers a simple, motivating spiritual experience that supports consistency and habit-building while maintaining a calm, respectful visual identity.
-      </p>
+      <h2>SERAFFINE — Luxury Jewelry E-commerce Design</h2>
+      <p><span class="highlight">Overview</span></p>
+      <p>Serafine is a conceptual luxury jewelry e-commerce platform designed to deliver a refined and visually driven shopping experience. The project focuses on presenting high-end products through a clean interface that emphasizes craftsmanship, detail, and timeless aesthetics.</p>
+      
+      <p><span class="highlight">Objective</span></p>
+      <p>The objective was to design an interface that communicates luxury while maintaining clarity and ease of use. The challenge was to balance minimalism with strong visual impact, ensuring that each product remains the focal point throughout the experience.</p>
+      
+      <p><span class="highlight">Challenge</span></p>
+      <p>In the luxury e-commerce space, visual presentation plays a critical role in shaping user perception. Overly complex layouts and excessive UI elements can diminish the perceived value of premium products.</p>
+      <p>The key challenge was to create a design system that:</p>
+      <p>• maintains a high-end visual identity<br>• minimizes distractions<br>• supports intuitive navigation and product discovery</p>
+      
+      <p><span class="highlight">Approach</span></p>
+      <p>The design approach was based on reduction and precision. Every element was intentionally placed to support the overall visual hierarchy and user flow.</p>
+      <p>Core principles:</p>
+      <p>• prioritizing product imagery<br>• using typography to establish tone and hierarchy<br>• maintaining consistent spacing and alignment<br>• limiting the use of color to reinforce a premium aesthetic</p>
+      
+      <p><span class="highlight">Visual Language</span></p>
+      <p>The visual direction draws from established luxury brands, focusing on timeless and understated design.</p>
+      <p>• Color System: neutral palette to create contrast and clarity<br>• Typography: elegant serif for headlines combined with a modern sans-serif for body text<br>• Layout: structured grid with generous white space<br>• Imagery: high-resolution product visuals with minimal distractions</p>
+      
+      <p><span class="highlight">Key Screens</span></p>
+      <p><strong>Homepage</strong><br>Designed to immediately communicate brand identity through a strong hero section and clear entry points into product categories.</p>
+      <p><strong>Product Listing</strong><br>A structured grid that allows users to browse efficiently while maintaining focus on individual items.</p>
+      <p><strong>Product Detail</strong><br>A refined layout that highlights the product through scale, spacing, and clear information hierarchy.</p>
+      
+      <p><span class="highlight">Design Execution</span></p>
+      <p>• Established a consistent grid system to ensure visual balance<br>• Applied subtle interactions to enhance usability without overwhelming the interface<br>• Maintained strict alignment and spacing rules across all screens<br>• Focused on clarity of actions through well-defined call-to-action elements</p>
+      
+      <p><span class="highlight">Outcome</span></p>
+      <p>The final result is a cohesive and polished interface that elevates the presentation of luxury products. The design reinforces brand perception through simplicity, clarity, and attention to detail.</p>
+      
+      <p><span class="highlight">Conclusion</span></p>
+      <p>Serafine demonstrates how a restrained and intentional design approach can enhance both usability and perceived value in a luxury e-commerce context. By reducing visual noise and focusing on essential elements, the interface creates a more engaging and sophisticated user experience.</p>
     </section>
 
   </div>
