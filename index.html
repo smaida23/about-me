@@ -495,6 +495,8 @@
       position: relative;
       animation: fadeInUp 0.6s ease-out forwards;
       opacity: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .projects-grid .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -533,6 +535,9 @@
 
     .project-content {
       padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .project-tag {
@@ -582,6 +587,12 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+
+    .project-action {
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
 
     .tool-badge {
       background: rgba(102, 126, 234, 0.1);
@@ -1063,7 +1074,7 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">UX</span>
           </div>
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="redesign-case-study.html" class="btn btn-secondary" rel="noopener">View App</a>
           </div>
         </div>
@@ -1081,7 +1092,7 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Web Design</span>
           </div>
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="mzikr.html" class="btn btn-secondary" rel="noopener">View Site</a>
           </div>
         </div>
@@ -1099,7 +1110,7 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Prototyping</span>
           </div>
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="moneyManager.html" class="btn btn-secondary"  rel="noopener">View App</a>
           </div>
         </div>
@@ -1117,7 +1128,7 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Design</span>
           </div>
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="fitvibe.html" class="btn btn-secondary" rel="noopener">View App</a>
           </div>
         </div>
@@ -1135,7 +1146,7 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Design</span>
           </div>
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="figma.html" class="btn btn-secondary" rel="noopener">View App</a>
           </div>
         </div>
@@ -1154,7 +1165,7 @@
             <span class="tool-badge">Prototyping</span>
           </div>
      
-          <div style="margin-top:1rem;">
+          <div class="project-action">
             <a href="smart-recipe.html" class="btn btn-secondary" rel="noopener">View App</a>
           </div>
         </div>
@@ -1244,10 +1255,6 @@
     <div class="contact-content">
       <h2>Let's Work Together</h2>
       <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/maida-šabanović-125816389?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-icon" title="LinkedIn">in</a>
-        <a href="mailto:smaida2325@gmail.com" class="social-icon" title="Email">✉️</a>
-      </div>
       <a href="mailto:smaida2325@gmail.com" class="btn btn-primary">Send Me an Email</a>
     </div>
   </section>
