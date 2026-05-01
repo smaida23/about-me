@@ -267,13 +267,16 @@
     .video-showcase {
       grid-template-columns: 1fr !important;
       margin-top: 32px;
+      max-width: 620px;
     }
 
     .video-showcase .macbook-item {
       aspect-ratio: auto !important;
       max-height: none;
       padding: 0;
-      min-height: 500px;
+      min-height: 0;
+      background: transparent;
+      display: block;
     }
 
     .portfolio-video {
@@ -281,6 +284,7 @@
       height: auto;
       object-fit: contain;
       display: block;
+      border-radius: 16px;
     }
 
     @media (max-width: 900px) {
