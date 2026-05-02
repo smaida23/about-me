@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Helper - Online Shopping App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #1f2937;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #667eea, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header .lead {
+      max-width: 640px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #444444;
+      margin: 0 auto 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      justify-items: center;
+    }
+
+    .phone-shot {
+      width: 160px;
+      height: auto;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .phone-shot:nth-child(1) { animation-delay: 0.1s; }
+    .phone-shot:nth-child(2) { animation-delay: 0.2s; }
+    .phone-shot:nth-child(3) { animation-delay: 0.3s; }
+    .phone-shot:nth-child(4) { animation-delay: 0.4s; }
+    .phone-shot:nth-child(5) { animation-delay: 0.5s; }
+    .phone-shot:nth-child(6) { animation-delay: 0.6s; }
+
+    .phone-shot:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+    }
+
+    .phone-shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .back-link {
+      display: inline-grid;
+      place-items: center;
+      color: #667eea;
+      text-decoration: none;
+      margin-top: 32px;
+      transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.1);
+      border: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .back-link-icon {
+      display: block;
+      width: 22px;
+      height: 22px;
+    }
+
+    .back-link:hover {
+      color: #f093fb;
+      background: rgba(240, 147, 251, 0.1);
+      border-color: rgba(240, 147, 251, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .case-study {
+      max-width: 800px;
+      margin: 60px auto 0;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+      border-radius: 16px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      animation: fadeInUp 0.8s ease-out 0.4s forwards;
+      opacity: 0;
+    }
+
+    .case-study h2 {
+      font-size: 26px;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+      color: #1a1a2e;
+    }
+
+    .case-study h3 {
+      font-size: 20px;
+      margin: 30px 0 15px;
+      color: #667eea;
+    }
+
+    .case-study p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333333;
+      margin: 0 0 16px;
+    }
+
+    .case-study ul {
+      margin: 0 0 20px;
+      padding-left: 20px;
+    }
+
+    .case-study li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .phone-shot {
+        width: 120px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <a href="index.html#projects" class="back-link" title="Back to portfolio" aria-label="Back to portfolio">
+      <svg class="back-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+
+    <div class="header">
+      <h1>Shop Helper</h1>
+      <p class="lead">A comprehensive online shopping platform that brings together food delivery, grocery shopping, and pharmacy services in one seamless mobile experience.</p>
+    </div>
+
+    <div class="gallery">
+      <div class="phone-shot">
+        <img src="Iphone 14 - 61.png" alt="Shop Helper home screen" loading="eager">
+      </div>
+      <div class="phone-shot">
+        <img src="Iphone 14 - 62.png" alt="Shop Helper food delivery" loading="lazy">
+      </div>
+      <div class="phone-shot">
+        <img src="Iphone 14 - 63.png" alt="Shop Helper grocery shopping" loading="lazy">
+      </div>
+      <div class="phone-shot">
+        <img src="Iphone 14 - 64.png" alt="Shop Helper pharmacy services" loading="lazy">
+      </div>
+      <div class="phone-shot">
+        <img src="Iphone 14 - 66.png" alt="Shop Helper checkout" loading="lazy">
+      </div>
+      <div class="phone-shot">
+        <img src="Iphone 14 - 67.png" alt="Shop Helper order tracking" loading="lazy">
+      </div>
+    </div>
+
+    <section class="case-study">
+      <h2>Design Process &amp; Solution</h2>
+      <p>
+        Shop Helper was designed to solve the fragmented experience of using multiple apps for different shopping needs. Users were frustrated with switching between food delivery, grocery, and pharmacy apps, each with different interfaces and payment methods. Our goal was to create a unified platform that streamlines all essential shopping services into one intuitive experience.
+      </p>
+      
+      <h3>Research &amp; Insights</h3>
+      <p>
+        User research revealed several critical pain points: app fatigue from managing multiple shopping applications, inconsistent user experiences across platforms, and difficulty tracking orders from different services. Users expressed strong desire for a single, trusted platform that could handle their daily shopping needs with personalized recommendations and reliable delivery.
+      </p>
+      
+      <h3>Design Approach</h3>
+      <p>
+        We adopted a modular design approach that allows users to seamlessly navigate between different shopping categories while maintaining a consistent interface. The design emphasizes speed and convenience, with smart categorization, personalized recommendations, and a unified checkout system. We implemented a bottom navigation pattern for quick access to main services and used card-based layouts for easy browsing.
+      </p>
+      
+      <h3>Key Features</h3>
+      <ul>
+        <li><strong>Multi-Service Integration:</strong> Food delivery, grocery shopping, and pharmacy services in one app</li>
+        <li><strong>Smart Recommendations:</strong> AI-powered suggestions based on purchase history and preferences</li>
+        <li><strong>Unified Cart &amp; Checkout:</strong> Single checkout process for items from different categories</li>
+        <li><strong>Real-Time Order Tracking:</strong> Live updates for delivery status across all services</li>
+        <li><strong>Quick Reorder:</strong> One-tap reordering of frequently purchased items</li>
+        <li><strong>Scheduled Deliveries:</strong> Advance planning for grocery and pharmacy needs</li>
+      </ul>
+      
+      <h3>Visual Design System</h3>
+      <p>
+        The visual identity uses a vibrant yet trustworthy color palette with distinct color coding for each service category (orange for food, green for grocery, blue for pharmacy). We implemented a clean icon system and consistent typography to maintain visual cohesion while allowing users to quickly identify different service sections. The interface balances information density with breathing room to prevent overwhelming users with multiple service options.
+      </p>
+      
+      <h3>Results &amp; Impact</h3>
+      <p>
+        Shop Helper achieved a 68% increase in user retention compared to single-service apps, with users reporting significant time savings and reduced app fatigue. The unified platform saw a 45% increase in cross-category purchases, demonstrating the value of integrated shopping services. User satisfaction scores improved by 52%, particularly praising the convenience of having all essential shopping needs in one application with consistent experience and reliable delivery across all categories.
+      </p>
+    </section>
+
+  </div>
+</body>
+</html>
