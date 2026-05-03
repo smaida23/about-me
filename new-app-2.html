@@ -47,44 +47,33 @@
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 800px;
       margin: 0 auto 40px;
-      justify-items: center;
     }
 
     .phone-shot {
-      width: 160px;
-      height: auto;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      animation: fadeInUp 0.6s ease-out forwards;
-      opacity: 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      background: white;
     }
 
-    .phone-shot:nth-child(1) { animation-delay: 0.1s; }
-    .phone-shot:nth-child(2) { animation-delay: 0.2s; }
-    .phone-shot:nth-child(3) { animation-delay: 0.3s; }
-    .phone-shot:nth-child(4) { animation-delay: 0.4s; }
-    .phone-shot:nth-child(5) { animation-delay: 0.5s; }
-    .phone-shot:nth-child(6) { animation-delay: 0.6s; }
-
     .phone-shot:hover {
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
     }
 
     .phone-shot img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 12px;
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -101,7 +90,7 @@
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: transform 0.6s ease;
-      border-radius: 24px;
+      border-radius: 16px;
       pointer-events: none;
     }
 
@@ -224,22 +213,10 @@
 
     <div class="gallery">
       <div class="phone-shot">
-        <img src="Iphone 14 - 61.png" alt="Shop Helper home screen" loading="eager">
+        <img src="Shop helper1.png" alt="Shop Helper app screen 1" loading="eager">
       </div>
       <div class="phone-shot">
-        <img src="Iphone 14 - 62.png" alt="Shop Helper food delivery" loading="lazy">
-      </div>
-      <div class="phone-shot">
-        <img src="Iphone 14 - 63.png" alt="Shop Helper grocery shopping" loading="lazy">
-      </div>
-      <div class="phone-shot">
-        <img src="Iphone 14 - 64.png" alt="Shop Helper pharmacy services" loading="lazy">
-      </div>
-      <div class="phone-shot">
-        <img src="Iphone 14 - 66.png" alt="Shop Helper checkout" loading="lazy">
-      </div>
-      <div class="phone-shot">
-        <img src="Iphone 14 - 67.png" alt="Shop Helper order tracking" loading="lazy">
+        <img src="Shop helper2.png" alt="Shop Helper app screen 2" loading="lazy">
       </div>
     </div>
 
