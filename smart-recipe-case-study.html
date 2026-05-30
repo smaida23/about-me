@@ -19,7 +19,6 @@
       line-height: 1.8;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -82,10 +81,26 @@
       color: #f093fb;
     }
 
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .meta span {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(102, 126, 234, 0.15);
+      border: 1px solid rgba(102, 126, 234, 0.35);
+      font-size: 13px;
+      color: #e8e8f0;
+    }
+
     h1 {
       font-size: 48px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       letter-spacing: -0.03em;
       background: linear-gradient(135deg, #667eea, #f093fb);
       -webkit-background-clip: text;
@@ -93,11 +108,18 @@
       background-clip: text;
     }
 
+    .subtitle {
+      font-size: 18px;
+      color: #a8a8b8;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
     h2 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
       margin-top: 40px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       color: #f093fb;
     }
 
@@ -123,7 +145,7 @@
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 24px;
       }
 
       .container {
@@ -131,7 +153,7 @@
       }
 
       .case-study-content {
-        font-size: 14px;
+        font-size: 15px;
       }
     }
   </style>
@@ -150,27 +172,107 @@
   <div class="container">
     <a href="smart-recipe.html" class="back-link">← Back to Project</a>
 
-    <h1>Smart Recipe App – UI/UX Design</h1>
+    <h1>Smart Recipe App – UI/UX Case Study</h1>
+    <p class="subtitle">
+      Designing a calm, AI-assisted cooking experience that helps users decide what to cook faster—and enjoy the process from discovery to the plate.
+    </p>
+
+    <div class="meta">
+      <span>Role: UI/UX Designer</span>
+      <span>Platform: iOS & Android</span>
+      <span>Tools: Figma, Prototyping</span>
+      <span>Type: Mobile App Concept</span>
+    </div>
 
     <div class="case-study-content">
+
+      <h2>Project Overview</h2>
       <p>
-        <span class="highlight">Smart Recipe App</span> is a thoughtfully designed mobile application that helps users discover and organize recipes in a simple and efficient way. By combining personalized recommendations with an intuitive interface, the app makes everyday meal planning easier and more enjoyable.
+        <span class="highlight">Smart Recipe</span> is a mobile application concept built to simplify everyday meal decisions. It combines personalized recipe recommendations, smart ingredient suggestions, and lightweight meal planning in one cohesive experience. Users can quickly discover what to cook, save favorites, and follow clear step-by-step guidance based on their preferences, available time, and what they already have at home.
       </p>
 
-      <h2>What the App Does</h2>
+      <h2>The Challenge</h2>
       <p>
-        The application offers users curated recipe suggestions based on their preferences, an easy-to-use search experience, and the ability to save favorite recipes for quick access. Clear categories and detailed recipe views allow users to find what they need without unnecessary steps.
+        Recipe apps often fail not because users lack options—but because they offer too many, without structure. During research and competitive review, several recurring pain points emerged:
+      </p>
+      <p>
+        • <span class="highlight">Decision fatigue</span> – Endless scrolling and comparison make it hard to choose a meal, especially on busy weekdays<br>
+        • <span class="highlight">Weak filtering</span> – Time, difficulty, and dietary needs are buried or inconsistent across screens<br>
+        • <span class="highlight">Poor information hierarchy</span> – Dense layouts make ingredients and instructions hard to scan in the kitchen<br>
+        • <span class="highlight">Low repeat usage</span> – Without favorites, planning, and save actions, users rarely return after the first session
+      </p>
+      <p>
+        The core problem was not missing content—it was friction in the journey from “What should I cook?” to “I’m cooking this now.”
       </p>
 
-      <h2>User Experience & Design</h2>
+      <h2>Design Objectives</h2>
       <p>
-        The app focuses on <span class="highlight">clarity, usability, and visual balance</span>. A warm, modern color palette and clean layouts highlight food imagery while maintaining readability and structure. Navigation is straightforward, allowing users to move through the app naturally and confidently.
+        The goal was to design a <span class="highlight">calm, efficient cooking experience</span> that reduces cognitive load and supports habit-building. Primary objectives included:
+      </p>
+      <p>
+        • Enable faster recipe discovery through personalization and smart filters<br>
+        • Surface AI-assisted ingredient suggestions that respect what users already have<br>
+        • Structure recipe detail screens for clarity: ingredients first, steps second, actions always visible<br>
+        • Support weekly meal planning and saved favorites for repeat engagement<br>
+        • Establish a warm, trustworthy visual system where food photography leads and UI stays out of the way
       </p>
 
-      <h2>Value for Businesses</h2>
+      <h2>Research & Process</h2>
       <p>
-        Smart Recipe App demonstrates how a <span class="highlight">well-designed digital product</span> can improve user engagement and support lifestyle-focused platforms. The solution is flexible and can be adapted for various use cases within the food, health, and wellness sectors.
+        The UX process began with analyzing common patterns in cooking apps and mapping high-priority user journeys: onboarding preferences, home discovery, search and filter, recipe detail, save to favorites, and weekly planning.
       </p>
+      <p>
+        Low-fidelity wireframes validated navigation depth and information hierarchy before visual design. Key decisions—such as image-first recipe cards, persistent filter chips, and a single primary action per recipe screen—were tested against the question: <em>Can a user decide and start cooking in under a minute?</em>
+      </p>
+      <p>
+        High-fidelity screens followed, focused on readability, reusable components, and a scalable design system suitable for future features (grocery lists, dietary profiles, seasonal collections).
+      </p>
+
+      <h2>Design Approach</h2>
+      <p>
+        The design philosophy centers on <span class="highlight">clarity, warmth, and scanability</span>:
+      </p>
+      <p>
+        <strong>Visual strategy:</strong> A modern palette with purple-to-pink accents pairs with generous whitespace and large food imagery. Typography and contrast prioritize legibility when users glance at the screen while cooking.<br><br>
+        <strong>Information architecture:</strong> Home emphasizes personalized picks and categories; filters live one tap away; recipe detail follows a predictable pattern so users never hunt for ingredients or steps.<br><br>
+        <strong>Interaction design:</strong> Save, plan, and share actions use consistent placement and feedback. Progressive disclosure keeps advanced options available without overwhelming first-time users.
+      </p>
+
+      <h2>Key Features</h2>
+      <p>
+        <strong>Personalized Home Feed</strong><br>
+        Curated recipe suggestions based on preferences, past saves, and browsing behavior—reducing time spent searching.<br><br>
+        <strong>Smart Ingredient Suggestions</strong><br>
+        AI-assisted recommendations that help users cook with what they already have, minimizing waste and last-minute store runs.<br><br>
+        <strong>Quick Filters</strong><br>
+        Filter by preparation time, difficulty, and dietary needs so users can narrow options in seconds.<br><br>
+        <strong>Recipe Detail & Cooking Mode</strong><br>
+        Clear ingredient lists, numbered step-by-step instructions, and visual hierarchy optimized for use in the kitchen.<br><br>
+        <strong>Favorites & Meal Planning</strong><br>
+        Save recipes for quick access and organize meals across the week to support planning habits and return visits.
+      </p>
+
+      <h2>Solution</h2>
+      <p>
+        Smart Recipe delivers a structured end-to-end flow: discover → compare → decide → cook → save → plan again. Category-based browsing and smart filters shorten the path to a confident choice. Each recipe screen is built around scannable content and obvious actions, while personalization and ingredient intelligence address the “nothing to cook” moment that causes drop-off in competing apps.
+      </p>
+      <p>
+        The result is a product that feels <span class="highlight">approachable for everyday cooks</span> and credible enough for users who cook often—without the clutter of a full social or content platform.
+      </p>
+
+      <h2>Outcome</h2>
+      <p>
+        The final concept presents a polished, user-friendly mobile experience that makes everyday cooking faster and more enjoyable. By combining personalization, clear interaction patterns, and a cohesive visual system, Smart Recipe is positioned to improve engagement, support repeat usage, and scale into adjacent lifestyle domains such as health, wellness, and grocery partnerships.
+      </p>
+
+      <h2>Key Takeaways</h2>
+      <p>
+        ✓ Reduced decision friction through personalization, filters, and clear hierarchy<br>
+        ✓ Strengthened trust with image-led cards and consistent recipe detail layouts<br>
+        ✓ Designed for repeat use with favorites, meal planning, and save-first interactions<br>
+        ✓ Built a reusable component system ready for prototyping and future development handoff
+      </p>
+
     </div>
   </div>
 
