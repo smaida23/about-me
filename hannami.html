@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hannami Ryokan — Case study | Maida Šabanović</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #000000; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+
+    .back-link { display: inline-grid; place-items: center; color: #667eea; text-decoration: none; margin-bottom: 20px; transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; width: 50px; height: 50px; padding: 0; border-radius: 50%; background: rgba(102, 126, 234, 0.1); border: 2px solid rgba(102, 126, 234, 0.2); }
+    .back-link-icon { display: block; width: 22px; height: 22px; }
+    .back-link:hover { color: #f093fb; background: rgba(240, 147, 251, 0.1); border-color: rgba(240, 147, 251, 0.3); transform: translateY(-2px); }
+
+    header { margin-bottom: 48px; }
+    header h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; margin: 0 0 12px; letter-spacing: -0.03em; background: linear-gradient(135deg, #667eea, #f093fb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    header .lead { max-width: 640px; font-size: 18px; line-height: 1.6; color: #444444; margin: 0; }
+
+    .gallery { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(102, 126, 234, 0.08); }
+    .gallery h2 { font-size: 28px; margin: 0 0 24px; text-align: left; color: #000000; }
+    .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 20px; justify-items: center; }
+    .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 720px; width: 100%; margin: 0 auto; }
+    .gallery-item img { width: 100%; height: auto; display: block; }
+
+    .macbook-image { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .macbook-item { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; cursor: pointer; display:flex; align-items:center; justify-content:center; background:#f5f7fa; aspect-ratio:16/9; max-width:820px; width:100%; }
+    /* phone wrapper matches width of top image but centers small phone mockup inside */
+    .phone-item { max-width: 720px; width: 100%; border-radius: 12px; overflow: visible; background: #fafafa; box-shadow: 0 10px 30px rgba(0,0,0,0.06); padding: 20px; display:flex; align-items:center; justify-content:center; }
+    .phone-image { width: 100%; max-width: 360px; height: auto; object-fit: contain; display: block; border-radius: 12px; }
+    .macbook-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3); }
+    .gallery-grid:nth-of-type(2) .macbook-item { aspect-ratio: 1/1; }
+
+    .case-study { margin: 40px 0; padding: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05)); border-radius: 16px; border: 1px solid rgba(102, 126, 234, 0.2); }
+    .case-study h2 { font-size: 32px; margin: 0 0 24px; letter-spacing: -0.02em; background: linear-gradient(135deg, #667eea, #f093fb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .case-study p { font-size: 16px; line-height: 1.8; color: #333333; margin-bottom: 16px; text-align: justify; }
+    .highlight { color: #f093fb; font-weight: 600; }
+
+    @media (max-width: 768px) { .container{padding:40px 16px} }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <a href="index.html" class="back-link" aria-label="Back to portfolio">
+      <svg class="back-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+
+    <header>
+      <h1>Hannami Ryokan Website</h1>
+      <p class="lead">Elegant website concept for a traditional Japanese ryokan focused on serene visuals, clear booking flow and storytelling.</p>
+    </header>
+
+    <section class="gallery">
+      <h2>All Design Screens</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="Screen@2x.png" alt="Hannami Screen" width="720" height="480" loading="eager" decoding="async">
+        </div>
+        <div class="gallery-item phone-item">
+          <img src="HANNAMI.png" alt="Hannami" class="phone-image" width="360" height="720" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="case-study">
+      <h2>Hannami Ryokan Website Concept</h2>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Overview</h3>
+      <p>Hannami is a concept website designed for a traditional Japanese ryokan that blends luxury hospitality with the beauty of nature. The goal was to create a calm and immersive digital experience that reflects the peaceful atmosphere guests can expect during their stay.</p>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Project Goal</h3>
+      <p>The objective was to design a visually engaging landing page that:</p>
+      <ul>
+        <li>Communicates the elegance of a traditional Japanese ryokan</li>
+        <li>Creates an emotional connection through imagery</li>
+        <li>Encourages users to explore accommodations and make reservations</li>
+        <li>Maintains a clean and modern user experience</li>
+      </ul>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Target Audience</h3>
+      <ul>
+        <li>Luxury travelers</li>
+        <li>Couples seeking a peaceful getaway</li>
+        <li>International tourists interested in Japanese culture</li>
+        <li>Guests looking for premium hospitality experiences</li>
+      </ul>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Design Process</h3>
+      <p><strong>Research &amp; Inspiration:</strong> The visual direction was inspired by traditional Japanese architecture, nature-focused hospitality experiences, luxury hotel websites, and minimalist design principles. The focus was on creating a sense of tranquility, warmth and authenticity.</p>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Visual Design</h3>
+      <p><strong>Color Palette:</strong> Soft, natural tones were selected to create a relaxing atmosphere: warm beige, deep brown, soft pink cherry blossom accents, and neutral backgrounds.</p>
+      <p><strong>Typography:</strong> Elegant serif typography was used for headlines to communicate luxury and tradition, while clean sans-serif text improves readability throughout the interface.</p>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Key Features</h3>
+      <p>The landing page opens with a full-width visual showcasing the ryokan surrounded by cherry blossoms. The section includes a clear value proposition, call-to-action button, navigation menu and guest rating indicator.</p>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Challenges</h3>
+      <p>One of the main challenges was balancing traditional Japanese aesthetics with modern web design principles. The solution was to combine elegant typography, minimal interface elements and immersive photography while maintaining a clean and intuitive layout.</p>
+
+      <h3 style="color: #f093fb; margin-top: 32px; margin-bottom: 16px; font-size: 24px;">Outcome</h3>
+      <p>The final design successfully captures the peaceful and luxurious atmosphere of a Japanese ryokan while providing users with a modern and user-friendly booking experience.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
