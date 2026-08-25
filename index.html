@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maida Sabanovic - UI/UX & Web Designer</title>
+  <title>Maida Sabanovic -  Web Designer</title>
   <style>
     * {
       margin: 0;
@@ -51,20 +51,24 @@
       scroll-padding-top: 80px;
     }
 
+    section {
+      content-visibility: auto;
+      contain-intrinsic-size: 1200px 700px;
+    }
+
     /* Navigation */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.96);
       padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
     }
 
     .logo {
@@ -306,8 +310,7 @@
       padding: 2rem;
       border-radius: 15px;
       border: 1px solid rgba(102, 126, 234, 0.2);
-      backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
       animation: fadeInUp 0.6s ease-out forwards;
@@ -424,7 +427,7 @@
       border-radius: 15px;
       overflow: hidden;
       border: 1px solid rgba(102, 126, 234, 0.2);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       animation: fadeInUp 0.6s ease-out forwards;
       opacity: 0;
@@ -511,7 +514,7 @@
       border-radius: 15px;
       overflow: hidden;
       border: 1px solid rgba(102, 126, 234, 0.2);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       position: relative;
       animation: fadeInUp 0.6s ease-out forwards;
@@ -939,6 +942,15 @@
     }
 
     /* Responsive */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     @media (max-width: 768px) {
       nav {
         padding: 1rem;
@@ -1095,7 +1107,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
-          <img src="rose glow sreum.png" alt="Skincare E-commerce app" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="rose glow sreum.webp" alt="Skincare E-commerce app" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
@@ -1113,7 +1125,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="Screen@2x.png" alt="Hannami Ryokan Website" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="Screen@2x.webp" alt="Hannami Ryokan Website" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">Web Design</span>
@@ -1131,7 +1143,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="MacBook-Pro-16.png" alt="Luxury jewelry website" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="MacBook-Pro-16.webp" alt="Luxury jewelry website" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">Web Design</span>
@@ -1149,12 +1161,12 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="mzikr35.jpg" alt="mNamaz App Redesign" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="mzikr35.webp" alt="mNamaz App Redesign" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
-          <h3>mNamaz  Redesign</h3>
-          <p>Clean and modern redesign with improved navigation, reduced clutter, and enhanced visual consistency..</p>
+          <h3>mNamaz Redesign</h3>
+          <p>Clean and modern redesign with improved navigation, reduced clutter, and enhanced visual consistency.</p>
           <div class="project-tools">
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">UX</span>
@@ -1167,7 +1179,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="Frame 1.png" alt="Shop Helper app" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="Frame 1.webp" alt="Shop Helper app" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
@@ -1185,7 +1197,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="Smart spend background.png" alt="Smart Spend Money Manager" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="Smart spend background.webp" alt="Smart Spend Money Manager" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
@@ -1196,19 +1208,19 @@
             <span class="tool-badge">Prototyping</span>
           </div>
           <div class="project-action">
-            <a href="moneyManager.html" class="btn btn-secondary"  rel="noopener">View App</a>
+            <a href="moneyManager.html" class="btn btn-secondary" rel="noopener">View App</a>
           </div>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-image">
-          <img src="teretana.jpg" alt="Another App" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="teretana.jpg" alt="Fitvibe app" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
           <h3>Fitvibe</h3>
-          <p>Fitness app designed to keep users motivated with personalized workout plans, progress tracking, and community features. Includes detailed exercise libraries and workout history analytics.</p>
+          <p>Fitness app designed to keep users motivated with personalized workout plans, progress tracking, and community features.</p>
           <div class="project-tools">
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Design</span>
@@ -1221,7 +1233,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Flow Music App" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="music-flow-1.png" alt="Music Flow Music App" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
@@ -1239,7 +1251,7 @@
 
       <div class="project-card">
         <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=400&fit=crop" alt="CookMate Recipe App" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="CookMate.webp" alt="CookMate Recipe App" width="600" height="400" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div class="project-content">
           <span class="project-tag">iOS & Android</span>
@@ -1249,13 +1261,12 @@
             <span class="tool-badge">Figma</span>
             <span class="tool-badge">Prototyping</span>
           </div>
-          
           <div class="project-action">
             <a href="smart-recipe.html" class="btn btn-secondary" rel="noopener">View App</a>
+          </div>
+        </div>
       </div>
-
-      
-      </div>
+    </div>
   </section>
 
   <!-- Skills Section -->
@@ -1355,7 +1366,6 @@
   </footer>
 
   <script>
-    // Smooth scrolling za sve anchor linkove
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1368,41 +1378,6 @@
         }
       });
     });
-
-    // Intersection Observer za smooth scroll animacije
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('scroll-animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Svi elementi sa animacijama
-    document.querySelectorAll('.skill-card, .project-card, .mockup-card, .about-content').forEach(el => {
-      el.style.opacity = '0';
-      observer.observe(el);
-    });
-
-    // Smooth scroll ponašanje za sve sekcije i elemente
-    document.addEventListener('scroll', () => {
-      // Smooth scroll effects
-    }, { passive: true });
-
-    // CSS klasa za animirane elemente
-    const style = document.createElement('style');
-    style.textContent = `
-      .scroll-animated {
-        animation: slideUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 </body>
 </html>
