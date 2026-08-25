@@ -1063,11 +1063,12 @@
         border-top: 1px solid rgba(102, 126, 234, 0.12);
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
         display: none;
-        padding: 1.2rem 1rem 1rem;
+        padding: 1rem 1rem 1.2rem;
       }
 
       .nav-menu.open {
-        display: block;
+        display: flex;
+        justify-content: center;
       }
 
       nav ul {
@@ -1080,21 +1081,23 @@
 
       nav li {
         width: 100%;
+        display: flex;
+        justify-content: center;
       }
 
       .nav-cta {
         margin-left: 0;
-        width: 100%;
-        max-width: 220px;
-        padding: 0.8rem 1rem;
+        width: auto;
+        min-width: 190px;
+        padding: 0.7rem 1.3rem;
         font-size: 0.84rem;
         margin: 0 auto;
       }
 
       nav a {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         padding: 0.4rem 0;
-        display: block;
+        display: inline-block;
         text-align: center;
       }
 
