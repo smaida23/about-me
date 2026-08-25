@@ -1118,18 +1118,34 @@
         align-items: center;
       }
 
-      .btn {
-        width: 100%;
-        max-width: 100%;
-      }
-
+      .btn,
       .hero .btn,
       .contact .btn,
       .contact a.btn,
-      .cta-buttons .btn {
+      .cta-buttons .btn,
+      .nav-cta {
         width: 100%;
         max-width: 100%;
         display: block;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .nav-cta {
+        background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+        color: #ffffff;
+        border-color: transparent;
+        box-shadow: 0 10px 24px rgba(79, 70, 229, 0.22);
+      }
+
+      .btn-secondary::before {
+        display: none;
+      }
+
+      .btn-secondary {
+        background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+        color: #ffffff;
+        border-color: transparent;
       }
 
       .mockups-grid {
