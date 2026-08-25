@@ -1074,7 +1074,7 @@
         flex-direction: column;
         gap: 0.7rem;
         align-items: stretch;
-        width: min(100%, 420px);
+        width: min(100%, 328px);
         margin: 0 auto;
         text-align: center;
       }
@@ -1088,10 +1088,10 @@
       .nav-cta {
         display: block;
         width: 100%;
-        max-width: none;
+        max-width: 328px;
         padding: 0.8rem 1.1rem;
         font-size: 0.84rem;
-        margin: 0;
+        margin: 0 auto;
       }
 
       nav a {
@@ -1115,7 +1115,19 @@
 
       .cta-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        width: min(100%, 328px);
+        margin: 0 auto;
+      }
+
+      .project-action,
+      .contact-content,
+      .cta-buttons {
+        width: 100%;
+      }
+
+      .project-action {
+        display: flex;
       }
 
       .btn,
@@ -1123,14 +1135,21 @@
       .contact .btn,
       .contact a.btn,
       .cta-buttons .btn,
-      .nav-cta {
-        width: 100%;
-        max-width: 100%;
-        display: block;
-        min-height: 48px;
+      .project-action .btn,
+      .nav-cta,
+      .nav-menu .nav-cta,
+      a.btn {
+        width: 100% !important;
+        max-width: 328px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        flex: 1 1 100%;
+        min-height: 52px;
         line-height: 1.2;
-        padding-top: 0.8rem;
-        padding-bottom: 0.8rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
 
       .btn-primary,
@@ -1203,15 +1222,100 @@
       .skills-grid,
       .projects-grid {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
       }
 
       .showcase-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .project-card,
+      .project-content,
+      .project-action,
+      .cta-buttons,
+      .contact-content,
+      .nav-menu,
+      nav ul,
+      .nav-menu ul,
+      .nav-menu li,
+      nav li {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .project-card {
+        width: 100% !important;
+      }
+
+      .project-content {
+        width: 100% !important;
+      }
+
+      #contact .contact-content {
+        width: 328px !important;
+        max-width: 328px !important;
+        min-width: 328px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto !important;
+      }
+
+      #contact .contact-content .btn,
+      #contact .contact-content a.btn,
+      #contact .btn,
+      #contact a.btn {
+        width: 328px !important;
+        max-width: 328px !important;
+        min-width: 328px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        transform: translateX(-8px);
+      }
+
+      .project-action {
+        display: block;
+        width: 100%;
+      }
+
+      .nav-menu li,
+      nav li {
+        display: block;
+      }
+
       .btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+      }
+
+      .btn,
+      .btn-primary,
+      .btn-secondary,
+      .nav-cta,
+      .project-action .btn,
+      .cta-buttons .btn,
+      .contact .btn,
+      .hero .btn,
+      .contact-content .btn,
+      .contact-content a.btn,
+      a.btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        min-height: 50px;
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+        flex: 1 1 100%;
+      }
+
+      .project-card .project-action .btn,
+      .project-card .btn,
+      .project-card a.btn {
+        width: 100% !important;
+        max-width: 100% !important;
       }
     }
 
@@ -1222,6 +1326,54 @@
 
       .mockup-image {
         height: 200px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .nav-menu,
+      .nav-menu ul,
+      .nav-menu li,
+      .cta-buttons,
+      .hero .hero-content,
+      .contact-content {
+        width: min(100%, 328px);
+        max-width: calc(100vw - 2rem);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .nav-menu {
+        box-sizing: border-box;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .nav-menu ul {
+        width: 100%;
+      }
+
+      .nav-menu li,
+      nav li {
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-menu .nav-cta,
+      .hero .btn,
+      .contact-content .btn,
+      #contact .btn,
+      #contact a.btn {
+        width: 328px !important;
+        max-width: 328px !important;
+        min-width: 328px !important;
+        flex: 0 0 328px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        min-height: 48px;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
     }
   </style>
@@ -1238,7 +1390,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        <li><a href="#contact" class="nav-cta" style="width: 328px; max-width: calc(100vw - 2rem); display: block; box-sizing: border-box; margin: 0 auto;">Get in Touch</a></li>
       </ul>
     </div>
   </nav>
@@ -1250,7 +1402,7 @@
       <div class="subtitle"><h2>UI/UX & Web Designer</h2></div>
       <p>I design interfaces and websites that make digital products easier to use and harder to ignore..</p>
       <div class="cta-buttons">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#projects" class="btn btn-primary" style="width: 328px; max-width: calc(100vw - 2rem); display: block; box-sizing: border-box; margin: 0 auto;">View My Work</a>
       </div>
     </div>
   </section>
@@ -1511,7 +1663,7 @@
     <div class="contact-content">
       <h2>Let's Work Together</h2>
       <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
-      <a href="mailto:smaida2325@gmail.com" class="btn btn-primary">Send Me an Email</a>
+      <a href="mailto:smaida2325@gmail.com" class="btn btn-primary" style="width: 328px; max-width: 328px; display: block; box-sizing: border-box; margin: 0 auto 0 -10px;">Send Me an Email</a>
     </div>
   </section>
 
@@ -1524,16 +1676,65 @@
     const toggleButton = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
+    function syncPrimaryCtas() {
+      const primaryButtons = document.querySelectorAll('.nav-cta, .hero .btn, #contact .btn');
+      const contactWrap = document.querySelector('.contact-content');
+      if (window.innerWidth <= 375) {
+        const sharedWidth = 328;
+        primaryButtons.forEach(el => {
+          el.style.width = sharedWidth + 'px';
+          el.style.maxWidth = sharedWidth + 'px';
+          el.style.minWidth = sharedWidth + 'px';
+          el.style.display = 'block';
+          el.style.boxSizing = 'border-box';
+          el.style.margin = '0 auto';
+          el.style.paddingTop = '0.8rem';
+          el.style.paddingBottom = '0.8rem';
+        });
+        if (contactWrap) {
+          contactWrap.style.width = sharedWidth + 'px';
+          contactWrap.style.maxWidth = sharedWidth + 'px';
+          contactWrap.style.minWidth = sharedWidth + 'px';
+          contactWrap.style.marginLeft = 'auto';
+          contactWrap.style.marginRight = 'auto';
+        }
+        if (contactWrap) {
+          contactWrap.style.width = sharedWidth + 'px';
+          contactWrap.style.maxWidth = sharedWidth + 'px';
+          contactWrap.style.marginLeft = 'auto';
+          contactWrap.style.marginRight = 'auto';
+        }
+      } else {
+        primaryButtons.forEach(el => {
+          el.style.width = '';
+          el.style.maxWidth = '';
+          el.style.display = '';
+          el.style.boxSizing = '';
+          el.style.margin = '';
+          el.style.paddingTop = '';
+          el.style.paddingBottom = '';
+        });
+        if (contactWrap) {
+          contactWrap.style.width = '';
+          contactWrap.style.maxWidth = '';
+          contactWrap.style.marginLeft = '';
+          contactWrap.style.marginRight = '';
+        }
+      }
+    }
+
     if (toggleButton && navMenu) {
       toggleButton.addEventListener('click', () => {
         const isOpen = navMenu.classList.toggle('open');
         toggleButton.setAttribute('aria-expanded', String(isOpen));
+        syncPrimaryCtas();
       });
 
       navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           navMenu.classList.remove('open');
           toggleButton.setAttribute('aria-expanded', 'false');
+          syncPrimaryCtas();
         });
       });
     }
@@ -1550,6 +1751,9 @@
         }
       });
     });
+
+    window.addEventListener('resize', syncPrimaryCtas);
+    syncPrimaryCtas();
   </script>
 </body>
 </html>
